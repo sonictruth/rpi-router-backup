@@ -1,0 +1,12 @@
+[Unit]
+Description=RobyHomeBot
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/roby-home-bot
+ExecStart=/usr/bin/nodejs index.js
+Restart=on-failure
+User=pi
+
+[Install]
+WantedBy=multi-user.target

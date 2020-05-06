@@ -1,0 +1,16 @@
+#
+# +---------------+
+# | wlan1 | wlan2 |
+# +-------+-------+
+# | wlan3 | wlan4 |
+# +---------------+ (RPI USB ports with position dependent device names for up to 4 optional wifi dongles)
+# 
+# | wlan0 | (onboard wifi)
+#
+
+
+#ACTION=="add", SUBSYSTEM=="net", SUBSYSTEMS=="usb",  KERNELS=="1-1.1.2:1.0", NAME="wlan1"
+#ACTION=="add", SUBSYSTEM=="net", SUBSYSTEMS=="usb",  KERNELS=="1-1.1.2:1.0", NAME="wlan2"
+ACTION=="add", SUBSYSTEM=="net", DRIVERS=="rtl88XXau", NAME="wlan1"
+ACTION=="add", SUBSYSTEM=="net", DRIVERS=="brcmfmac", NAME="wlan0"
+
