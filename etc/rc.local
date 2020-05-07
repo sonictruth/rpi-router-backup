@@ -24,5 +24,8 @@ sudo sh -c 'echo none > /sys/class/leds/led1/trigger'
 #Activity LED off
 sudo sh -c 'echo 0 > /sys/class/leds/led0/brightness'
 
+iwconfig wlan11 power off
+
+vcgencmd display_power 0
 
 exit 0

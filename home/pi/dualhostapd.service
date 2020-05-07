@@ -1,0 +1,15 @@
+[Unit]
+Description=Dual hostapd
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/hostapd.pid
+Restart=on-failure
+RestartSec=2
+Environment=DAEMON_CONF=/etc/hostapd/hostapd.conf
+EnvironmentFile=-/etc/default/hostapd
+ExecStart=/usr/sbin/hostapd -B -P /run/hostapd.pid  /etc/hostapd/hostapd5.conf /etc/hostapd/hostapd2.conf
+
+[Install]
+WantedBy=multi-user.target
